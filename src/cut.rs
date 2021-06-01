@@ -4,10 +4,10 @@ use std::{
     fs,
     fs::File,
     io::{BufRead, BufReader, BufWriter, Write},
-    path::Path
+    path::Path,
 };
 
-pub fn split(src: &Path, dst: &Path) -> Result<(), Box<dyn Error>>{
+pub fn cut(src: &Path, dst: &Path) -> Result<(), Box<dyn Error>> {
     let presto_file = File::open(src)?;
     let f = BufReader::new(presto_file);
 
@@ -44,6 +44,6 @@ pub fn split(src: &Path, dst: &Path) -> Result<(), Box<dyn Error>>{
         }
     }
     buf_out.flush()?;
-    
+
     Ok(())
 }

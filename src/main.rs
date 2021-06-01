@@ -1,16 +1,14 @@
+use std::error::Error;
 use structopt::StructOpt;
-use std::{
-    error::Error,
-};
 
 mod cli;
-mod split;
+mod cut;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let opt = cli::PrestoParser::from_args();
     match opt {
-        cli::PrestoParser::Split(e) => {
-            split::split(&e.path_file, &e.dst)?;
+        cli::PrestoParser::Cut(e) => {
+            cut::cut(&e.path_file, &e.dst)?;
         }
     }
 
