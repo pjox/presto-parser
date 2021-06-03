@@ -4,10 +4,10 @@ This is a parser for the NER annotated _Presto_ corpus distributed [here](https:
 
 ## Usage
 
-To split a presto file do:
+To cut a presto file into subfiles do:
 
 ```bash
-presto-parser split [path/to/presto_file] [path/to/folder]
+presto-parser cut [path/to/presto_file] [path/to/folder]
 ```
 
 To correct a presto file do:
