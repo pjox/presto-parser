@@ -128,25 +128,37 @@ pub fn parse(src: &Path) -> Result<(), Box<dyn Error>> {
         // };
         // sent.tokens.push(tok.clone());
     }
+
+    let mut pos: Vec<_> = pos.into_iter().collect();
+    pos.sort();
+    let mut coarse: Vec<_> = coarse.into_iter().collect();
+    coarse.sort();
+    let mut fine: Vec<_> = fine.into_iter().collect();
+    fine.sort();
+    let mut comp: Vec<_> = comp.into_iter().collect();
+    comp.sort();
+    let mut nested: Vec<_> = nested.into_iter().collect();
+    nested.sort();
+
     println!("POS:");
-    for x in pos{
+    for x in pos {
         println!("{:?}", x);
     }
 
     println!("\nCOARSE:");
-    for x in coarse{
+    for x in coarse {
         println!("{:?}", x);
     }
     println!("\nFINE:");
-    for x in fine{
+    for x in fine {
         println!("{:?}", x);
     }
     println!("\nCOMP:");
-    for x in comp{
+    for x in comp {
         println!("{:?}", x);
     }
     println!("\nNESTED:");
-    for x in nested{
+    for x in nested {
         println!("{:?}", x);
     }
 

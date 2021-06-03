@@ -11,8 +11,10 @@ use structopt::StructOpt;
 pub enum PrestoParser {
     #[structopt(about = "Cut the main Presto file into sub-files")]
     Cut(Cut),
-    #[structopt(about = "PArse main Presto file into sub-files")]
+    #[structopt(about = "Parse main Presto file into sub-files")]
     Parse(Parse),
+    #[structopt(about = "Correct main Presto file into sub-files")]
+    Correct(Correct),
 }
 
 #[derive(StructOpt)]
@@ -25,6 +27,12 @@ pub struct Cut {
 
 #[derive(StructOpt)]
 pub struct Parse {
+    #[structopt(parse(from_os_str), help = "path to presto file")]
+    pub path_file: PathBuf,
+}
+
+#[derive(StructOpt)]
+pub struct Correct {
     #[structopt(parse(from_os_str), help = "path to presto file")]
     pub path_file: PathBuf,
 }

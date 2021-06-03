@@ -4,6 +4,8 @@ use structopt::StructOpt;
 mod cli;
 mod cut;
 mod parse;
+mod correct;
+mod tags;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let opt = cli::PrestoParser::from_args();
@@ -13,6 +15,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
         cli::PrestoParser::Parse(e) => {
             parse::parse(&e.path_file)?;
+        }
+        cli::PrestoParser::Correct(e) => {
+            correct::correct(&e.path_file)?;
         }
     }
 
