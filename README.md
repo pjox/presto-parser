@@ -13,13 +13,13 @@ presto-parser cut [path/to/presto_file] [path/to/folder]
 To correct a presto file do:
 
 ```bash
-presto-parser cotrect [path/to/presto_file]
+presto-parser correct [path/to/presto_file]
 ```
 
 To if there are many mistakes try with
 
 ```bash
-presto-parser cotrect [path/to/presto_file] > error_file.txt
+presto-parser correct [path/to/presto_file] > error_file.txt
 ```
 
 ## Installation
