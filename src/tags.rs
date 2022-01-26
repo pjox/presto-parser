@@ -1,6 +1,4 @@
-use std::{
-    collections::{HashSet},
-};
+use std::collections::HashSet;
 
 use structopt::lazy_static::lazy_static;
 
@@ -63,7 +61,6 @@ lazy_static! {
 
         m
     };
-
     pub static ref COARSE: HashSet<&'static str> = {
         let mut m = HashSet::new();
         m.insert("B-amount");
@@ -86,7 +83,6 @@ lazy_static! {
 
         m
     };
-
     pub static ref FINE: HashSet<&'static str> = {
         let mut m = HashSet::new();
         m.insert("B-amount");
@@ -146,7 +142,6 @@ lazy_static! {
 
         m
     };
-
     pub static ref COMP: HashSet<&'static str> = {
         let mut m = HashSet::new();
         m.insert("B-comp.func");
@@ -169,7 +164,6 @@ lazy_static! {
 
         m
     };
-
     pub static ref NESTED: HashSet<&'static str> = {
         let mut m = HashSet::new();
         m.insert("B-loc.adm.nat");

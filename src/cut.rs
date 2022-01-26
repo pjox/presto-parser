@@ -13,7 +13,7 @@ pub fn cut(src: &Path, dst: &Path) -> Result<(), Box<dyn Error>> {
 
     fs::create_dir_all(dst)?;
 
-    let re = Regex::new(r"^(.+)\.tsv\txxx\tXXX\tO\tO\tO\tO\t_$").unwrap();
+    let re = Regex::new(r"^(.+)\.conll\txxx\tXXX\tO\tO\tO\tO\t_$").unwrap();
 
     let mut lines = f.lines();
     lines.next();

@@ -1,3 +1,4 @@
+use crate::tags;
 use regex::Regex;
 use std::{
     error::Error,
@@ -5,7 +6,6 @@ use std::{
     io::{BufRead, BufReader},
     path::Path,
 };
-use crate::tags;
 
 pub fn correct(src: &Path) -> Result<(), Box<dyn Error>> {
     let presto_file = File::open(src)?;
@@ -22,28 +22,63 @@ pub fn correct(src: &Path) -> Result<(), Box<dyn Error>> {
             continue;
         }
         if line.matches('\t').count() != 7 {
-            println!("Problem with FORMAT \nLine num: {} \nLine: {}\n", line_num + 1, line);
+            println!(
+                "In file {}\nProblem with FORMAT \nLine num: {} \nLine: {}\n",
+                src.file_name().unwrap().to_str().unwrap(),
+                line_num + 1,
+                line
+            );
             continue;
         }
         let cap = re_tok.captures(&line).unwrap();
         if !tags::POS.contains(&cap[3]) {
-            println!("Problem with POS tag, {} is not allowed! \nLine num: {} \nLine: {}\n", &cap[3], line_num + 1, line);
+            println!(
+                "In file {}\nProblem with POS tag, {} is not allowed! \nLine num: {} \nLine: {}\n",
+                src.file_name().unwrap().to_str().unwrap(),
+                &cap[3],
+                line_num + 1,
+                line
+            );
             continue;
         }
         if !tags::COARSE.contains(&cap[4]) {
-            println!("Problem with COARSE tag, {} is not allowed! \nLine num: {} \nLine: {}\n", &cap[4], line_num + 1, line);
+            println!(
+                "In file {}\nProblem with COARSE tag, {} is not allowed! \nLine num: {} \nLine: {}\n",
+                src.file_name().unwrap().to_str().unwrap(),
+                &cap[4],
+                line_num + 1,
+                line
+            );
             continue;
         }
         if !tags::FINE.contains(&cap[5]) {
-            println!("Problem with FINE tag, {} is not allowed! \nLine num: {} \nLine: {}\n", &cap[5], line_num + 1, line);
+            println!(
+                "In file {}\nProblem with FINE tag, {} is not allowed! \nLine num: {} \nLine: {}\n",
+                src.file_name().unwrap().to_str().unwrap(),
+                &cap[5],
+                line_num + 1,
+                line
+            );
             continue;
         }
         if !tags::COMP.contains(&cap[6]) {
-            println!("Problem with COMP tag, {} is not allowed! \nLine num: {} \nLine: {}\n", &cap[6], line_num + 1, line);
+            println!(
+                "In file {}\nProblem with COMP tag, {} is not allowed! \nLine num: {} \nLine: {}\n",
+                src.file_name().unwrap().to_str().unwrap(),
+                &cap[6],
+                line_num + 1,
+                line
+            );
             continue;
         }
         if !tags::NESTED.contains(&cap[7]) {
-            println!("Problem with NESTED tag, {} is not allowed! \nLine num: {} \nLine: {}\n", &cap[7], line_num + 1, line);
+            println!(
+                "In file {}\nProblem with NESTED tag, {} is not allowed! \nLine num: {} \nLine: {}\n",
+                src.file_name().unwrap().to_str().unwrap(),
+                &cap[7],
+                line_num + 1,
+                line
+            );
             continue;
         }
     }

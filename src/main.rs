@@ -2,9 +2,10 @@ use std::error::Error;
 use structopt::StructOpt;
 
 mod cli;
-mod cut;
-mod parse;
 mod correct;
+mod cut;
+mod merge;
+mod parse;
 mod tags;
 
 fn main() -> Result<(), Box<dyn Error>> {
@@ -18,6 +19,9 @@ fn main() -> Result<(), Box<dyn Error>> {
         }
         cli::PrestoParser::Correct(e) => {
             correct::correct(&e.path_file)?;
+        }
+        cli::PrestoParser::Merge(e) => {
+            merge::merge(&e.src, &e.dst)?;
         }
     }
 

@@ -2,10 +2,11 @@
 name = "presto-parser"
 version = "0.1.0"
 authors = ["Pedro Ortiz Suárez <pedro@pjortiz.eu>"]
-edition = "2018"
+edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 regex = "1"
 structopt = "0.3.21"
+walkdir = "2"

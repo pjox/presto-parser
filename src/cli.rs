@@ -15,6 +15,8 @@ pub enum PrestoParser {
     Parse(Parse),
     #[structopt(about = "Correct main Presto file into sub-files")]
     Correct(Correct),
+    #[structopt(about = "Merge the Presto sub-files into the presto main file")]
+    Merge(Merge),
 }
 
 #[derive(StructOpt)]
@@ -35,4 +37,12 @@ pub struct Parse {
 pub struct Correct {
     #[structopt(parse(from_os_str), help = "path to presto file")]
     pub path_file: PathBuf,
+}
+
+#[derive(StructOpt)]
+pub struct Merge {
+    #[structopt(parse(from_os_str), help = "path to folder containing sub-files")]
+    pub src: PathBuf,
+    #[structopt(parse(from_os_str), help = "path to Presto main file")]
+    pub dst: PathBuf,
 }

@@ -1,6 +1,7 @@
 /target
-/PrestoMax
+/presto-max
 presto_max_v5.4.txt
+presto_max_v5.5.conll
 presto_test.txt
 .DS_Store
 errors.txt
