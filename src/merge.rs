@@ -22,7 +22,7 @@ pub fn merge(src: &Path, dst: &Path) -> Result<(), Box<dyn Error>> {
     {
         let entry = entry?;
         if entry.path().is_file() {
-            correct::correct(&entry.path())?;
+            correct::correct(entry.path())?;
             let file = File::open(entry.path())?;
             let mut f = BufReader::new(file);
             writeln!(
